@@ -29,4 +29,15 @@ after_success:
   - docker push loaymoh99/dkr-demo-client
   - docker push loaymoh99/dkr-demo-nginx
   - docker push loaymoh99/dkr-demo-api
-
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: Dropoids_demo
+  env: Dropoidsdemo-env
+  bucket_name: elasticbeanstalk-us-east-2-708087603038
+  bucket_path: Dropoids_demo
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
