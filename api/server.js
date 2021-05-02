@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "http://dropoidsdemo-env.eba-cpd49qay.us-east-2.elasticbeanstalk.com"
+  origin: "http://dropoidsdemo-env.eba-cpd49qay.us-east-2.elasticbeanstalk.com:3001"
 };
 
 app.use(cors(corsOptions));
