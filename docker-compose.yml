@@ -11,16 +11,16 @@ services:
           context: ./nginx
         ports:  
           - '81:80'
-    mongo:
-        image: mongo
-        container_name: 'mongo-db'
-        ports:
-            - '27017-27019:27017-27019'
-        volumes: 
-            - ./db/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-            - ./db/mongo-volume:/data/db
-        env_file:
-            - ./api/.env
+    # mongo:
+    #     image: mongo
+    #     container_name: 'mongo-db'
+    #     ports:
+    #         - '27017-27019:27017-27019'
+    #     volumes: 
+    #         - ./db/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    #         - ./db/mongo-volume:/data/db
+        #env_file:
+        #    - ./api/.env
     api:
         build: 
             context: ./api
@@ -29,10 +29,10 @@ services:
         #     - 8080:8080
         restart: on-failure
         container_name: api
-        depends_on:
-            - mongo
-        env_file:
-            - ./api/.env
+        # depends_on:
+        #     - mongo
+        #env_file:
+        #   - ./api/.env
         volumes:
           - /app/node_modules # Inside the container, don't try to override this folder, just leave as is    
     client:

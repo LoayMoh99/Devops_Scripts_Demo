@@ -1,7 +1,8 @@
 import axios from "axios";
 
+const url = require("./url");
 export default axios.create({
-  baseURL: "http://dropoidsdemo-env.eba-cpd49qay.us-east-2.elasticbeanstalk.com/api",
+  baseURL: "http://localhost:81/api",
   headers: {
     "Content-type": "application/json"
   }
